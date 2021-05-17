@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 //* Token to access API
-const dimiToken = 'aad5de35593f48602bc3a0b1908fe764e122af32'
+const dimiToken = '80f79ab1fa67d457cf4252baae991865d6b2f083'
 
 
 //* Base URL
