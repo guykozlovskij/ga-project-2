@@ -1,6 +1,6 @@
 //* Imports
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { getAllCountries } from '../../lib/api'
 
@@ -40,9 +40,9 @@ function Home() {
     <main>
       <div>
         <h1>EVERYDAY HOLIDAY</h1>
-        <h2>Welcome to 'Everyday Holiday'!</h2>
+        <h2>Welcome to `Everyday Holiday`!</h2>
         <p>          Your friendly neighbourhood API that displays all holidays for any
-          country all the way up to 2048! Select country, year and press 'GO!'
+        country all the way up to 2048! Select country, year and press `GO!`
         </p>
 
         <section className="choices"
@@ -66,7 +66,7 @@ function Home() {
               </option>
             )}
           </select>
- 
+
           <select onChange={handleSelectedYear} value={selectedYear}>
             <option value="" disabled selected>
               Select Year
@@ -102,7 +102,7 @@ function Home() {
           </select>
 
           {selectedYear && selectedCountry ? (
-           
+
             <Link to={`/holidays/${selectedCountry}/${selectedYear}`}>
               <button>GO!</button>
             </Link>
