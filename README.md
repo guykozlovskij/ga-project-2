@@ -36,7 +36,7 @@ The website is mobile-friendly and accessible through the web browser
 ### Overview
 Our website has two main components: the homepage and holiday-display page which are routed in `App.js` using `<BrowserRouter>`.
 
-```
+```js
 function App() {
   return (
     <Router>
@@ -54,7 +54,7 @@ As the API was split into two sections, one two first get all the countries, and
 ### Requests
 We implemented two requests handled in `api.js` using axios `get` methods: 
 
-```
+```js
 export function getAllCountries(){
   return axios.get('https://calendarific.com/api/v2/countries?api_key=aad5de35593f48602bc3a0b1908fe764e122af32')
 }
@@ -71,11 +71,11 @@ We retrieve the `id` and `year` required for `getSingleCountry` function in the 
 #### Country Select
 ![](/img/homepage.png)
 
-The homepage starts a friendly introduction screen with two dropdown boxes to select the country and the year. 
+The homepage starts with a friendly introduction screen displaying two dropdown boxes to select the country and the year. 
 
 As soon as the page is loaded a GET request is made to get the list of all countries within the API. The response is then stored in the `setCountries` variable.
 
-```
+```js
 const [countries, setCountries] = React.useState(null)
 
 React.useEffect(() => {
@@ -92,13 +92,13 @@ React.useEffect(() => {
 ```
 
 The values are then mapped through `select` tag and a select `option` is created for each of the countries.
-```
+```js
 <select onChange={handleSelect} value={selectedCountry}>
             <option value="" disabled selected>
               Select Country
             </option>
             {countries ? (
-              //* iso-3166 is the country ID.
+              // iso-3166 is the country ID.
               countries.response.countries.map((country) => (
                 <option key={country.country_name} value={country['iso-3166']}>
                   {country.country_name}
