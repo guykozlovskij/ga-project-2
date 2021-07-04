@@ -12,7 +12,7 @@ function HolidayDisplay() {
   const [singleCountry, setSingleCountry] = React.useState(null)
 
 
-  //* Gets a JSON object of a single country and store it in the SsingleCountry variable.
+  //* Gets a JSON object of a single country and store it in the singleCountry variable.
   React.useEffect(() => {
     const getData = async () => {
       const response = await getSingleCountry(id, year)
@@ -35,7 +35,6 @@ function HolidayDisplay() {
         <button onClick={handleBack}>Back</button>
         {singleCountry ?
           (<button onClick={handleBack}>Back</button>) && (
-
             //* Maps through the singleCountry object returning title, year, and description of holiday
             singleCountry.response.holidays.map((holiday) => (
               <div className="holiday-view" key={holiday.name}>

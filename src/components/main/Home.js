@@ -8,7 +8,7 @@ import { getAllCountries } from '../../lib/api'
 function Home() {
   const [countries, setCountries] = React.useState(null)
   const [setIsError] = React.useState(false)
-  const [selectedCountry, setSelecteCountry] = React.useState('')
+  const [selectedCountry, setSelectedCountry] = React.useState('')
   const [selectedYear, setSelectedYear] = React.useState('')
 
 
@@ -23,12 +23,12 @@ function Home() {
       }
     }
     getData()
-  }, [])
+  }, [setIsError])
 
 
   //* Select handlers
   const handleSelect = (e) => {
-    setSelecteCountry(e.target.value)
+    setSelectedCountry(e.target.value)
   }
 
   const handleSelectedYear = (e) => {
@@ -41,10 +41,9 @@ function Home() {
       <div>
         <h1>EVERYDAY HOLIDAY</h1>
         <h2>Welcome to `Everyday Holiday`!</h2>
-        <p>          Your friendly neighbourhood API that displays all holidays for any
-        country all the way up to 2048! Select country, year and press `GO!`
+        <p>
+          Your friendly neighborhood API that displays all holidays for any country all the way up to 2048! Select country, year and press `GO!`
         </p>
-
         <section className="choices"
         //* Select dropdown that displays all countries
         >
@@ -52,7 +51,6 @@ function Home() {
             <option value="" disabled selected>
               Select Country
             </option>
-
             {countries ? (
               //* Maps through the setCountries array are returns all country names, plus ID of the country (iso-3166) which is passed to the URL.
               countries.response.countries.map((country) => (
@@ -100,9 +98,7 @@ function Home() {
             <option>2047</option>
             <option>2048</option>
           </select>
-
           {selectedYear && selectedCountry ? (
-
             <Link to={`/holidays/${selectedCountry}/${selectedYear}`}>
               <button>GO!</button>
             </Link>
