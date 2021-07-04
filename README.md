@@ -64,7 +64,7 @@ export function getSingleCountry(id, year) {
 }
 ```
 
-We retrieve the `id` and `year` required for `getSingleCountry` function in the homepage from the `getAllCountries` function. 
+We retrieve the `id` and `year` required for `getSingleCountry` request in the `HolidayDisplay` component from the URL (see [here](#params)).
 
 
 ### Homepage 
@@ -112,7 +112,7 @@ The values are then mapped through `select` tag and an `option` is created for e
           </select>
 ```
 
-The select options then hold the country ID [iso-3166] as their `value` which is later passed used in the URL. 
+The select options then hold the country ID (iso-3166) as their `value` which is later passed used in the URL. 
 
 #### GO!
 If both the country and the year have been selected, a 'GO!' button is then displayed. 
@@ -143,5 +143,15 @@ const handleSelectedYear = (e) => {
 }
 ```
 
+
 ### Holiday Display 
+#### URL Parameters 
+Once the 'GO!' button is clicked we are taken to the holiday-display page. 
+
+<a name="params"></a>
+Using `useParams` we retrieve the country ID and the year and pass it to the `getSingleCountry` request which accepts `id` and `year` as it's parameters.
+
+```js
+
+```
 
