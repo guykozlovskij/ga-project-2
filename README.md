@@ -91,7 +91,7 @@ React.useEffect(() => {
 }, [setIsError])
 ```
 
-The values are then mapped through `select` tag and a select `option` is created for each of the countries.
+The values are then mapped through `select` tag and an `option` is created for each of the countries.
 ```js
 <select onChange={handleSelect} value={selectedCountry}>
             <option value="" disabled selected>
@@ -112,4 +112,36 @@ The values are then mapped through `select` tag and a select `option` is created
           </select>
 ```
 
-The select options then hold the country ID [iso-3166] as their value which is later passed used in the URL. 
+The select options then hold the country ID [iso-3166] as their `value` which is later passed used in the URL. 
+
+#### GO!
+If both the country and the year have been selected, a 'GO!' button is then displayed. 
+
+![](/img/button-demonstration.gif)
+
+```js
+{selectedYear && selectedCountry ? (
+  <Link to={`/holidays/${selectedCountry}/${selectedYear}`}>
+    <button>GO!</button>
+  </Link>
+) : (
+  <strong></strong>
+)}
+```
+
+The button is wrapped in a `<Link>` tag accepting `selectedCountry` and `selectedYear` variables in the URL pathway. The values for these are retrieved in two select handlers called on both of the select boxes and the 
+
+```js
+const [selectedCountry, setSelectedCountry] = React.useState('')
+const [selectedYear, setSelectedYear] = React.useState('')
+
+const handleSelect = (e) => {
+  setSelectedCountry(e.target.value)
+}
+const handleSelectedYear = (e) => {
+  setSelectedYear(e.target.value)
+}
+```
+
+### Holiday Display 
+
