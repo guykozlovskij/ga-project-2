@@ -5,7 +5,7 @@
 by [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https://github.com/D-Tsonev)
 
 ## Table of Contents
-* [The Overview](#overview)
+* [Overview](#overview)
 * [Brief](#brief)
 * [Technologies Used](#technologies)
 * [Approach](#approach)
