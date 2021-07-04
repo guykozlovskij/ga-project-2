@@ -58,7 +58,7 @@ We implemented two requests handled in `api.js` using axios `get` methods:
 export function getAllCountries(){
   return axios.get('https://calendarific.com/api/v2/countries?api_key=aad5de35593f48602bc3a0b1908fe764e122af32')
 }
-
+<a name="request"></a>
 export function getSingleCountry(id, year) {
   return axios.get(`${holidayUrl}&country=${id}&year=${year}`)
 }
@@ -149,7 +149,7 @@ const handleSelectedYear = (e) => {
 Once the 'GO!' button is clicked we are taken to the holiday-display page. 
 
 <a name="params"></a>
-Using `useParams` we retrieve the country ID and the year and pass it to the `getSingleCountry` request which accepts `id` and `year` as it's parameters.
+Using `useParams` we retrieve the country ID and the year and pass it to the `getSingleCountry` request which accepts `id` and `year` as it's parameters (see request [here](#request))
 
 ```js
 
