@@ -8,7 +8,7 @@ by [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https
 
 A two-day paired project as part of the Software Engineering Immersive course at General Assembly. The goal was to build a React app that consumes a public API. 
 
-We chose to create an app showing all national holidays for a selected country adn year using Calendarific API. The app was deployed using Netlify and can be viewed [here](https://guykozlovskij-project-2.netlify.app/)
+We chose to create an app showing all national holidays for a selected country adn year using Calendarific API. The app was deployed using Netlify and can be viewed [here](https://guykozlovskij-project-2.netlify.app/).
 
 
 ## Brief
@@ -70,6 +70,7 @@ We retrieve the `id` and `year` required for `getSingleCountry` function in the 
 ### Homepage 
 #### Country Select
 ![](/img/homepage.png)
+
 The homepage starts a friendly introduction screen with two dropdown boxes to select the country and the year. 
 
 As soon as the page is loaded a GET request is made to get the list of all countries within the API. The response is then stored in the `setCountries` variable.
