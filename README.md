@@ -4,8 +4,23 @@
 # Everyday Holiday 
 by [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https://github.com/D-Tsonev)
 
-## Overview  
+## Table of Contents
+* [The Overview](#overview)
+  * [Technologies Used](#tech)
+  * [The Approach](#approach)
+  * [The Grid](#grid)
+  * [The Player](#player)
+    * [Player Movement](#player-movement)
+    * [Player Projectile](#player-shooting)
+  * [Aliens](#aliens)
+    * [Alien Wall Collision](#alien-wall)
+    * [Alien Projectiles](#alien-shooting)
+* [Challenges](#challenges)
+* [Victories](#Victories)
+* [Lessons Learned](#lessons)
+* [Potential Future Features](#future)
 
+## Overview  
 A two-day paired project as part of the Software Engineering Immersive course at General Assembly. The goal was to build a React app that consumes a public API. 
 
 We chose to create an app showing all national holidays for a selected country adn year using Calendarific API. The app was deployed using Netlify and can be viewed [here](https://guykozlovskij-project-2.netlify.app/).
@@ -33,7 +48,8 @@ Our goal was to create a simple, straightforward app that will display all holid
 
 The website is mobile-friendly and accessible through the web browser
 
-### Overview
+## The App
+### Router
 Our website has two main components: the homepage and holiday-display page which are routed in `App.js` using `<BrowserRouter>`.
 
 ```js
@@ -49,16 +65,15 @@ function App() {
 }
 ```
 
-As the API was split into two sections, one two first get all the countries, and second to get a specific countries holidays, the challenge was understanding the API and correctly passing the selected country ID which is retrieved first in the homepage, combining it with the selected year ensuring the correct result is shown in the holiday-display page. 
-
 ### Requests
 We implemented two requests handled in `api.js` using axios `get` methods: 
+<a name="request"></a>
 
 ```js
 export function getAllCountries(){
   return axios.get('https://calendarific.com/api/v2/countries?api_key=aad5de35593f48602bc3a0b1908fe764e122af32')
 }
-<a name="request"></a>
+
 export function getSingleCountry(id, year) {
   return axios.get(`${holidayUrl}&country=${id}&year=${year}`)
 }
@@ -117,8 +132,6 @@ The select options then hold the country ID (iso-3166) as their `value` which is
 #### GO!
 If both the country and the year have been selected, a 'GO!' button is then displayed. 
 
-![](/img/button-demonstration.gif)
-
 ```js
 {selectedYear && selectedCountry ? (
   <Link to={`/holidays/${selectedCountry}/${selectedYear}`}>
@@ -128,6 +141,8 @@ If both the country and the year have been selected, a 'GO!' button is then disp
   <strong></strong>
 )}
 ```
+
+![](/img/button-demonstration.gif)
 
 The button is wrapped in a `<Link>` tag accepting `selectedCountry` and `selectedYear` variables in the URL pathway. The values for these are retrieved in two select handlers called on both of the select boxes and the 
 
@@ -149,9 +164,48 @@ const handleSelectedYear = (e) => {
 Once the 'GO!' button is clicked we are taken to the holiday-display page. 
 
 <a name="params"></a>
-Using `useParams` we retrieve the country ID and the year and pass it to the `getSingleCountry` request which accepts `id` and `year` as it's parameters (see request [here](#request))
+Using `useParams` we retrieve the country ID and the year and pass it to the `getSingleCountry` request which accepts `id` and `year` as it's parameters (see the API request [here](#request)).
+
+Response is the stored in the `singleCountry` variable.
 
 ```js
+const { id, year } = useParams()
+  const history = useHistory()
+  const [singleCountry, setSingleCountry] = React.useState(null)
 
+React.useEffect(() => {
+  const getData = async () => {
+    const response = await getSingleCountry(id, year)
+    setSingleCountry(response.data)
+    console.log(response)
+  }
+  getData()
+}, [id, year])
+```
+#### Holiday Card
+If the response is true, we then map through `singleCountry` and create a 'HolidayCard' which lists the name of the holiday, date of when it is held (reflecting the selected year) and the description of the holiday. 
+
+```js
+<section className="HolidayCard">
+        <button onClick={handleBack}>Back</button>
+        {singleCountry ?
+          (<button onClick={handleBack}>Back</button>) && (
+            singleCountry.response.holidays.map((holiday) => (
+              <div className="holiday-view" key={holiday.name}>
+                <h3>{holiday.name}</h3> 
+                <h5>{holiday.date.datetime.day}/{holiday.date.datetime.month}/{holiday.date.datetime.year}</h5>
+                <h4>{holiday.description}</h4>
+              </div>
+            ))) 
+          : 
+          (<p>... Loading holidays </p>)}
+      </section>
 ```
 
+![](img/holiday-display.gif)
+
+## Challenges
+As the API was split into two sections, one to first get all the countries, and second to get a specific country's holidays, the challenge was understanding the API and correctly passing the selected country ID which is retrieved first in the homepage, combining it with the selected year ensuring the correct result is shown in the holiday-display page. 
+
+## Lessons Learned
+We spent a long time trying to pass the URL parameters between components in different ways without any success, however eventually realized there is a very elegant and simple solution using `useParams`. This was a big relief and a win and taught us the value of  reading documentation and doing a good amount of research to find a solution for a problem rather than trying to create on on our own. As this was our very first React project which we had to complete in 24 hours we are very happy with the result and what we have learned.
