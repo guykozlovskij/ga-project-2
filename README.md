@@ -164,7 +164,7 @@ If both the country and the year have been selected, a 'GO!' button is then disp
 
 ![](/img/button-demonstration.gif)
 
-The button is wrapped in a `<Link>` tag accepting `selectedCountry` and `selectedYear` variables in the URL pathway. The values for these are retrieved in two select handlers called on both of the select boxes and the 
+The button is wrapped in a `<Link>` tag accepting `selectedCountry` and `selectedYear` variables in the URL pathway. The values for these are retrieved in two select handlers called on both of the select boxes.
 
 ```js
 const [selectedCountry, setSelectedCountry] = React.useState('')
