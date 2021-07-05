@@ -51,7 +51,7 @@ We chose to create an app showing all national holidays for a selected country a
 <a name="approach"></a>
 
 ## Approach 
-Our goal was to create a simple, straightforward app that will display all holidays for a selected country with the accurate date based on a selected year, which we designed with a clean minimalist approach. As this was our first project using React, after having studied it for two weeks, our goal was to ensure we understand how to correctly pass data within components and to display correct output from the API. 
+Our goal was to create a simple, straightforward app that will display all holidays for a selected country with the accurate date based on a selected year, which we designed with a clean minimalist approach. As this was our first project using React, after having studied it for two weeks, our goal was to ensure we understand how to correctly pass data within components and to display correct output from the API. We worked collaboratively using VSCode Live Share and planned out our MVP in Ziteboard. 
 
 The website is mobile-friendly and accessible through the web browser
 
