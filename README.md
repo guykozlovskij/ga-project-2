@@ -43,7 +43,7 @@ We chose to create an app showing all national holidays for a selected country a
 - HTML5
 - React
 - CCS3
-- JavaScript
+- JavaScript (ES6)
 - Git and GitHub
 - NPM 
 - VSCode Live Share 
