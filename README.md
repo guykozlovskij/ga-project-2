@@ -2,7 +2,7 @@
 ### General Assembly, Software Engineering Immersive 
 
 # Everyday Holiday 
-by [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https://github.com/D-Tsonev)
+By [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https://github.com/D-Tsonev).
 
 ## Table of Contents
 * [Overview](#overview)
