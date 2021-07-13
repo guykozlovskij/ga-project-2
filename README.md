@@ -19,6 +19,7 @@ By [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https
     * [URL Parameters](#url-params)
     * [Holiday Card](#holiday-card)
 * [Challenges](#challenges)
+* [Victories](#victories)
 * [Lessons Learned](#lessons-learned)
 
 <a name="overview"></a>
@@ -26,7 +27,7 @@ By [Guy Kozlovskij](https://github.com/guykozlovskij) and [Dimitar Tsonev](https
 ## Overview  
 A two-day paired project as part of the Software Engineering Immersive course at General Assembly. The goal was to build a React app that consumes a public API. 
 
-We chose to create an app showing all national holidays for a selected country adn year using Calendarific API. The app was deployed using Netlify and can be viewed [here](https://guykozlovskij-project-2.netlify.app/).
+We chose to create an app showing all national holidays for a selected country and year using Calendarific API. The app was deployed using Netlify and can be viewed [here](https://guykozlovskij-project-2.netlify.app/).
 
 <a name="brief"></a>
 
@@ -53,7 +54,7 @@ We chose to create an app showing all national holidays for a selected country a
 ## Approach 
 Our goal was to create a simple, straightforward app that will display all holidays for a selected country with the accurate date based on a selected year, which we designed with a clean minimalist approach. As this was our first project using React, after having studied it for two weeks, our goal was to ensure we understand how to correctly pass data within components and to display correct output from the API. We worked collaboratively using VSCode Live Share and planned out our MVP in Ziteboard. 
 
-The website is mobile-friendly and accessible through the web browser
+The website is mobile-friendly and accessible through the web browser.
 
 <a name="app"></a>
 
@@ -233,6 +234,11 @@ If the response is true, we then map through `singleCountry` and create a 'Holid
 
 ## Challenges
 As the API was split into two sections, one to first get all the countries, and second to get a specific country's holidays, the challenge was understanding the API and correctly passing the selected country ID which is retrieved first in the homepage, combining it with the selected year ensuring the correct result is shown in the holiday-display page. 
+
+<a name="victories"></a>
+
+## Victories
+We had an option to use Bulma for this project, however we wanted to use this opportunity to also practice CSS. Despite the very limited time, and this being our first React project consuming a public API, we are happy with the final result and the look of our website. 
 
 <a name="lessons-learned"></a>
 
